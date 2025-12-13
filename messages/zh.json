@@ -1,0 +1,159 @@
+{
+    "nav": {
+        "features": "产品功能",
+        "testimonials": "用户评价",
+        "faq": "常见问题",
+        "contact": "联系合作"
+    },
+    "hero": {
+        "badge": "完全免费 · 无需登录",
+        "title": "为您的链接生成",
+        "titleHighlight": "完美的二维码",
+        "description": "简单、快速、可定制。只需输入您的网址，即可生成高质量的二维码。适用于营销活动、个人名片或任何分享场景。",
+        "placeholder": "请输入您的网址 (例如: https://example.com)",
+        "generate": "生成",
+        "permanent": "永久有效",
+        "highQuality": "高清下载",
+        "customizable": "支持个性化",
+        "downloadPng": "下载 PNG",
+        "beautify": "美化二维码"
+    },
+    "features": {
+        "title": "核心优势",
+        "subtitle": "为什么选择 QR Master？",
+        "description": "不仅仅是生成，我们提供更优质、更专业的二维码解决方案。",
+        "customizable": {
+            "title": "高度可定制",
+            "desc": "自定义颜色、边距和尺寸，让二维码完美融入您的品牌设计风格，提升品牌形象。"
+        },
+        "highQuality": {
+            "title": "高清导出",
+            "desc": "支持高清 PNG 格式下载，像素完美，满足从网络展示到大幅面印刷的各种需求。"
+        },
+        "compatible": {
+            "title": "跨平台兼容",
+            "desc": "生成的二维码经过优化，可在所有主流智能手机和扫描应用中快速、准确地识别。"
+        },
+        "permanent": {
+            "title": "永久有效",
+            "desc": "生成的静态二维码不依赖于我们的服务器，只要您的链接有效，二维码就永久有效。"
+        },
+        "noRegistration": {
+            "title": "无需注册",
+            "desc": "告别繁琐的注册流程，打开页面即可使用，保护您的隐私，提高工作效率。"
+        },
+        "realtime": {
+            "title": "实时预览",
+            "desc": "所见即所得。在您调整设置时，二维码会实时更新，确保您获得满意的结果。"
+        }
+    },
+    "testimonials": {
+        "title": "用户评价",
+        "subtitle": "深受用户信赖",
+        "items": [
+            {
+                "name": "张伟",
+                "role": "市场营销经理",
+                "content": "这是我用过最简单、最快速的二维码生成工具。自定义颜色功能让我们的营销材料看起来更专业。"
+            },
+            {
+                "name": "李娜",
+                "role": "独立设计师",
+                "content": "作为设计师，我对细节要求很高。这个工具生成的高清PNG完全满足了我的印刷需求，强烈推荐！"
+            },
+            {
+                "name": "王强",
+                "role": "小型企业主",
+                "content": "无需登录，免费使用，而且生成的二维码扫描速度很快。对于我们这样的小企业来说，简直太棒了。"
+            }
+        ]
+    },
+    "faq": {
+        "title": "常见问题",
+        "subtitle": "解答您的疑问",
+        "items": [
+            {
+                "question": "生成的二维码是永久有效的吗？",
+                "answer": "是的，只要您输入的网址是有效的，生成的二维码就会一直有效。我们不会对二维码设置任何过期时间。"
+            },
+            {
+                "question": "我可以将生成的二维码用于商业用途吗？",
+                "answer": "当然可以。本工具生成的二维码完全免费，您可以将其用于任何个人或商业项目，无需注明出处。"
+            },
+            {
+                "question": "你们会存储我的数据吗？",
+                "answer": "不会。我们非常重视您的隐私。您输入的网址仅用于实时生成二维码，我们不会在服务器上存储任何信息。"
+            },
+            {
+                "question": "如何提高二维码的扫描成功率？",
+                "answer": "建议保持二维码的前景色和背景色有足够的对比度（例如黑白）。同时，避免将二维码做得太小或太复杂。"
+            }
+        ]
+    },
+    "footer": {
+        "description": "为您提供简单、快速、专业的二维码生成服务。无需登录，即刻使用。",
+        "quickLinks": "快速链接",
+        "home": "首页",
+        "contact": "联系我们",
+        "copyright": "© {year} QR Master. All rights reserved."
+    },
+    "editor": {
+        "title": "二维码样式编辑器",
+        "changeStyle": "更换样式",
+        "currentStyle": "当前样式",
+        "basicStyle": "基本样式",
+        "styleDescription": "0-17字符，可打印20mm直径内，建议1米外扫描",
+        "logo": "Logo",
+        "uploadLogo": "上传Logo",
+        "logoSelect": "Logo选择",
+        "colorSettings": "码点颜色",
+        "codeColor": "码颜色",
+        "bgColor": "背景颜色",
+        "black": "黑色",
+        "white": "白色",
+        "dotStyle": "码点样式",
+        "cornerStyle": "码眼样式",
+        "dotStyleDesc": "选择码点的形状样式",
+        "cornerStyleDesc": "选择码眼外框的形状",
+        "more": "更多",
+        "margin": "码边距",
+        "errorCorrection": "容错率",
+        "version": "码版本",
+        "auto": "自动",
+        "size": "码尺寸",
+        "addText": "+ 添加文字",
+        "currentStyleLabel": "当前样式:",
+        "saveAndDownload": "保存并下载",
+        "clearStyle": "清除样式",
+        "downloadPrint": "下载打印",
+        "styleLibrary": "样式库",
+        "styleLibraryDesc": "选择预设样式快速应用",
+        "classicBW": "经典黑白",
+        "dotBlue": "圆点蓝",
+        "roundedGreen": "圆角绿",
+        "classyRed": "典雅红",
+        "tips": "使用提示",
+        "tip1": "保持前景色和背景色有足够对比度",
+        "tip2": "Logo 建议使用透明背景的 PNG 格式",
+        "tip3": "容错率越高，二维码越复杂但容错能力越强",
+        "dotStyles": {
+            "square": "● 普通",
+            "dots": "● 圆点",
+            "rounded": "● 圆角",
+            "classy": "● 典雅",
+            "classyRounded": "● 典雅圆角",
+            "extraRounded": "● 超大圆角"
+        },
+        "cornerStyles": {
+            "square": "■ 方正",
+            "dot": "● 圆形",
+            "extraRounded": "▢ 圆角"
+        },
+        "eccLevels": {
+            "L": "L (7%)",
+            "M": "M (15%)",
+            "Q": "Q (25%)",
+            "H": "H (30%)"
+        }
+    }
+}
