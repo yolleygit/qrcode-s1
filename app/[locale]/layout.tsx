@@ -16,11 +16,18 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-export const metadata: Metadata = {
-  title: "QR Master - 免费在线二维码生成器",
-  description: "简单、快速、可定制的在线二维码生成工具。支持自定义颜色、Logo、码点样式等。完全免费，无需登录。",
-  keywords: "二维码生成器,QR Code,二维码美化,免费二维码",
-};
+import { getTranslations } from 'next-intl/server';
+
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: 'metadata' });
+
+  return {
+    title: t('title'),
+    description: t('description'),
+    keywords: t('keywords'),
+  };
+}
 
 const locales = ['en', 'zh'];
 

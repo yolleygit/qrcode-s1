@@ -3,6 +3,7 @@
 import { DotType } from 'qr-code-styling';
 import { useState, useRef, useEffect } from 'react';
 import { ChevronDown } from 'lucide-react';
+import { useTranslations } from 'next-intl';
 
 interface DotStyleSelectorProps {
     value: DotType;
@@ -10,24 +11,26 @@ interface DotStyleSelectorProps {
 }
 
 // 码点样式配置 - 14种样式，使用本地图片
-const dotStyles: { type: DotType; label: string; image: string }[] = [
-    { type: 'square', label: '普通', image: '/images/dot/1.png' },
-    { type: 'dots', label: '液化', image: '/images/dot/2.png' },
-    { type: 'rounded', label: '圆液化', image: '/images/dot/16.png' },
-    { type: 'extra-rounded', label: '条纹', image: '/images/dot/17.png' },
-    { type: 'classy-rounded', label: '横条纹', image: '/images/dot/4.png' },
-    { type: 'classy', label: '竖条纹', image: '/images/dot/5.png' },
-    { type: 'square', label: '瓷砖', image: '/images/dot/15.png' },
-    { type: 'dots', label: '大圆点', image: '/images/dot/6.png' },
-    { type: 'dots', label: '小圆点', image: '/images/dot/7.png' },
-    { type: 'classy', label: '粗星形', image: '/images/dot/9.png' },
-    { type: 'classy-rounded', label: '细星形', image: '/images/dot/10.png' },
-    { type: 'square', label: '网格', image: '/images/dot/3.png' },
-    { type: 'extra-rounded', label: '菱形', image: '/images/dot/11.png' },
-    { type: 'rounded', label: '小方点', image: '/images/dot/dot32.png' },
+const dotStyles: { type: DotType; translationKey: string; image: string }[] = [
+    { type: 'square', translationKey: 'square', image: '/images/dot/1.png' },
+    { type: 'dots', translationKey: 'liquid', image: '/images/dot/2.png' },
+    { type: 'rounded', translationKey: 'roundLiquid', image: '/images/dot/16.png' },
+    { type: 'extra-rounded', translationKey: 'stripe', image: '/images/dot/17.png' },
+    { type: 'classy-rounded', translationKey: 'hStripe', image: '/images/dot/4.png' },
+    { type: 'classy', translationKey: 'vStripe', image: '/images/dot/5.png' },
+    { type: 'square', translationKey: 'tile', image: '/images/dot/15.png' },
+    { type: 'dots', translationKey: 'bigDot', image: '/images/dot/6.png' },
+    { type: 'dots', translationKey: 'smallDot', image: '/images/dot/7.png' },
+    { type: 'classy', translationKey: 'thickStar', image: '/images/dot/9.png' },
+    { type: 'classy-rounded', translationKey: 'thinStar', image: '/images/dot/10.png' },
+    { type: 'square', translationKey: 'grid', image: '/images/dot/3.png' },
+    { type: 'extra-rounded', translationKey: 'diamond', image: '/images/dot/11.png' },
+    { type: 'rounded', translationKey: 'smallSquare', image: '/images/dot/dot32.png' },
 ];
 
 export default function DotStyleSelector({ value, onChange }: DotStyleSelectorProps) {
+    const t = useTranslations('editor.dotStyles');
+    const tEditor = useTranslations('editor');
     const [isOpen, setIsOpen] = useState(false);
     const [selectedIndex, setSelectedIndex] = useState(0);
     const dropdownRef = useRef<HTMLDivElement>(null);
@@ -53,7 +56,7 @@ export default function DotStyleSelector({ value, onChange }: DotStyleSelectorPr
     return (
         <div className="space-y-3">
             <div className="text-sm font-bold text-slate-800 dark:text-white flex items-center gap-2">
-                码点样式
+                {tEditor('dotStyle')}
                 <div className="w-5 h-5 rounded-full border border-slate-300 dark:border-slate-600 flex items-center justify-center text-xs text-slate-400">
                     i
                 </div>
@@ -67,9 +70,9 @@ export default function DotStyleSelector({ value, onChange }: DotStyleSelectorPr
                 >
                     <div className="flex items-center gap-3">
                         <div className="w-8 h-8 flex items-center justify-center overflow-hidden rounded bg-white flex-shrink-0">
-                            <img src={currentStyle.image} alt={currentStyle.label} className="w-8 h-8 object-contain" />
+                            <img src={currentStyle.image} alt={t(currentStyle.translationKey)} className="w-8 h-8 object-contain" />
                         </div>
-                        <span className="text-sm font-medium text-slate-700 dark:text-slate-300">{currentStyle.label}</span>
+                        <span className="text-sm font-medium text-slate-700 dark:text-slate-300">{t(currentStyle.translationKey)}</span>
                     </div>
                     <ChevronDown className={`w-4 h-4 text-slate-400 transition-transform flex-shrink-0 ${isOpen ? 'rotate-180' : ''}`} />
                 </button>
@@ -83,18 +86,18 @@ export default function DotStyleSelector({ value, onChange }: DotStyleSelectorPr
                                     key={idx}
                                     onClick={() => handleSelect(idx)}
                                     className={`flex flex-col items-center justify-center gap-0.5 p-1.5 rounded-lg border-2 transition-all ${selectedIndex === idx
-                                            ? 'border-green-500 bg-green-50 dark:bg-green-900/20'
-                                            : 'border-transparent hover:border-slate-200 dark:hover:border-slate-600 bg-slate-50 dark:bg-slate-700/50'
+                                        ? 'border-green-500 bg-green-50 dark:bg-green-900/20'
+                                        : 'border-transparent hover:border-slate-200 dark:hover:border-slate-600 bg-slate-50 dark:bg-slate-700/50'
                                         }`}
                                 >
                                     <div className="w-10 h-10 flex items-center justify-center overflow-hidden bg-white rounded">
-                                        <img src={style.image} alt={style.label} className="w-10 h-10 object-contain" />
+                                        <img src={style.image} alt={t(style.translationKey)} className="w-10 h-10 object-contain" />
                                     </div>
-                                    <span className="text-[10px] text-slate-600 dark:text-slate-400 whitespace-nowrap leading-tight">{style.label}</span>
+                                    <span className="text-[10px] text-slate-600 dark:text-slate-400 whitespace-nowrap leading-tight">{t(style.translationKey)}</span>
                                 </button>
                             ))}
                         </div>
-                        <div className="mt-2 text-[10px] text-slate-500 dark:text-slate-400">选择码点的形状样式</div>
+                        <div className="mt-2 text-[10px] text-slate-500 dark:text-slate-400">{tEditor('dotStyleDesc')}</div>
                     </div>
                 )}
             </div>

@@ -54,17 +54,20 @@
             {
                 "name": "张伟",
                 "role": "市场营销经理",
-                "content": "这是我用过最简单、最快速的二维码生成工具。自定义颜色功能让我们的营销材料看起来更专业。"
+                "content": "这是我用过最简单、最快速的二维码生成工具。自定义颜色功能让我们的营销材料看起来更专业。",
+                "avatar": "zhangwei"
             },
             {
                 "name": "李娜",
                 "role": "独立设计师",
-                "content": "作为设计师，我对细节要求很高。这个工具生成的高清PNG完全满足了我的印刷需求，强烈推荐！"
+                "content": "作为设计师，我对细节要求很高。这个工具生成的高清PNG完全满足了我的印刷需求，强烈推荐！",
+                "avatar": "lina"
             },
             {
                 "name": "王强",
                 "role": "小型企业主",
-                "content": "无需登录，免费使用，而且生成的二维码扫描速度很快。对于我们这样的小企业来说，简直太棒了。"
+                "content": "无需登录，免费使用，而且生成的二维码扫描速度很快。对于我们这样的小企业来说，简直太棒了。",
+                "avatar": "wangqiang"
             }
         ]
     },
@@ -137,17 +140,35 @@
         "tip2": "Logo 建议使用透明背景的 PNG 格式",
         "tip3": "容错率越高，二维码越复杂但容错能力越强",
         "dotStyles": {
-            "square": "● 普通",
-            "dots": "● 圆点",
-            "rounded": "● 圆角",
-            "classy": "● 典雅",
-            "classyRounded": "● 典雅圆角",
-            "extraRounded": "● 超大圆角"
+            "square": "普通",
+            "liquid": "液化",
+            "roundLiquid": "圆液化",
+            "stripe": "条纹",
+            "hStripe": "横条纹",
+            "vStripe": "竖条纹",
+            "tile": "瓷砖",
+            "bigDot": "大圆点",
+            "smallDot": "小圆点",
+            "thickStar": "粗星形",
+            "thinStar": "细星形",
+            "grid": "网格",
+            "diamond": "菱形",
+            "smallSquare": "小方点"
         },
         "cornerStyles": {
-            "square": "■ 方正",
-            "dot": "● 圆形",
-            "extraRounded": "▢ 圆角"
+            "square": "方正",
+            "rounded": "圆角",
+            "thickRounded": "粗圆角",
+            "mediumRounded": "中圆角",
+            "thinRounded": "细圆角",
+            "thickCircle": "粗圆形",
+            "thinCircle": "细圆形",
+            "diamond": "菱形",
+            "star": "星形",
+            "bubble": "气泡",
+            "eye": "眼睛",
+            "singleRounded": "单圆角",
+            "fourEyes": "四码眼"
         },
         "eccLevels": {
             "L": "L (7%)",
@@ -155,5 +176,15 @@
             "Q": "Q (25%)",
             "H": "H (30%)"
         }
+    },
+    "notFound": {
+        "title": "页面未找到",
+        "description": "抱歉，您访问的页面不存在。",
+        "backHome": "返回首页"
+    },
+    "metadata": {
+        "title": "QR Master - 免费在线二维码生成器",
+        "description": "简单、快速、可定制的在线二维码生成工具。支持自定义颜色、Logo、码点样式等。完全免费，无需登录。",
+        "keywords": "二维码生成器,QR Code,二维码美化,免费二维码"
     }
 }
