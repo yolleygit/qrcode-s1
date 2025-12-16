@@ -1,0 +1,13 @@
+# Cloudflare Pages 配置
+# 注意：这个文件只是为了让错误的部署命令能够执行
+# 正确的做法是在控制台中删除部署命令
+
+name = "qrcode-style"
+compatibility_date = "2024-12-16"
+
+# Pages 项目配置
+pages_build_output_dir = "out"
+
+# 这个配置让 wrangler 知道这是一个 Pages 项目
+[env.production]
+compatibility_date = "2024-12-16"
