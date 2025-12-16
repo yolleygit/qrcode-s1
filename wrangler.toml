@@ -1,5 +1,0 @@
-name = "qrcode-style"
-compatibility_date = "2025-12-16"
-
-# For Cloudflare Pages static site
-pages_build_output_dir = "out"

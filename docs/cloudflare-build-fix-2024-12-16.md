@@ -91,17 +91,22 @@ npm error peer next@">=14.3.0 && <=15.5.2" from @cloudflare/next-on-pages@1.13.1
 ## 🚀 部署配置
 
 ### Cloudflare Pages 设置
-```toml
-# wrangler.toml
-name = "qrcode-style"
-compatibility_date = "2025-12-16"
-pages_build_output_dir = "out"
-```
-
-### 构建命令
+**构建配置**:
 - **构建命令**: `npm run build`
 - **输出目录**: `out`
 - **Node.js 版本**: 18+ (推荐 18.17.0 或更高)
+
+**重要**: 静态站点不需要 `wrangler.toml` 文件，Cloudflare Pages 会自动处理静态文件部署。
+
+### 安全头配置
+```
+# _headers
+/*
+  X-Frame-Options: DENY
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=()
+```
 
 ## 🔍 预防措施
 
