@@ -1,0 +1,12 @@
+# Cloudflare Pages Redirects
+# Handle Next.js static export routing
+
+# Redirect root to default locale
+/ /zh 302
+
+# Handle locale-specific routes
+/en/* /en/:splat 200
+/zh/* /zh/:splat 200
+
+# Fallback for any unmatched routes
+/* /zh/404 404
