@@ -21,11 +21,13 @@ import { useUnifiedKeyboardShortcuts, createQRPageShortcuts } from '../hooks/use
 interface StaticQRGeneratorProps {
   onSelectRecentConfig: (config: QRConfig) => void;
   onShowPreferences: () => void;
+  isEmbedded?: boolean;
 }
 
 export function StaticQRGenerator({ 
   onSelectRecentConfig, 
-  onShowPreferences 
+  onShowPreferences,
+  isEmbedded = false
 }: StaticQRGeneratorProps) {
   const { handleError } = useErrorHandler();
   const { preferences, addRecentConfig } = useUserPreferences();
@@ -108,43 +110,45 @@ export function StaticQRGenerator({
     <section 
       id="quick-generate" 
       ref={containerRef}
-      className="bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800"
-      style={{ 
+      className={isEmbedded ? "" : "bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800"}
+      style={isEmbedded ? {} : { 
         minHeight: isMobile ? 'auto' : `${containerHeight}px`,
         maxHeight: isMobile ? 'none' : `${containerHeight + 100}px`
       }}
     >
-      {/* 紧凑标题区域 */}
-      <div className="flex items-center justify-between px-4 sm:px-6 lg:px-8 py-4 border-b border-slate-100 dark:border-slate-800">
-        <div className="flex items-center gap-3">
-          <h2 className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white">
-            静态二维码
-          </h2>
-          <span className="hidden sm:inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400">
-            实时预览
-          </span>
+      {/* 紧凑标题区域 - 仅在非嵌入模式显示 */}
+      {!isEmbedded && (
+        <div className="flex items-center justify-between px-4 sm:px-6 lg:px-8 py-4 border-b border-slate-100 dark:border-slate-800">
+          <div className="flex items-center gap-3">
+            <h2 className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white">
+              静态二维码
+            </h2>
+            <span className="hidden sm:inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400">
+              实时预览
+            </span>
+          </div>
+          <div className="flex items-center gap-2">
+            <ShortcutHelpTrigger shortcuts={availableShortcuts} compact />
+            <button
+              onClick={() => setShowRecentConfigs(!showRecentConfigs)}
+              className="p-2 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg transition-colors text-slate-500 dark:text-slate-400"
+              title="最近配置"
+            >
+              {showRecentConfigs ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
+            </button>
+            <button
+              onClick={onShowPreferences}
+              className="p-2 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg transition-colors text-slate-500 dark:text-slate-400"
+              title="偏好设置"
+            >
+              <Settings className="w-4 h-4" />
+            </button>
+          </div>
         </div>
-        <div className="flex items-center gap-2">
-          <ShortcutHelpTrigger shortcuts={availableShortcuts} compact />
-          <button
-            onClick={() => setShowRecentConfigs(!showRecentConfigs)}
-            className="p-2 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg transition-colors text-slate-500 dark:text-slate-400"
-            title="最近配置"
-          >
-            {showRecentConfigs ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
-          </button>
-          <button
-            onClick={onShowPreferences}
-            className="p-2 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg transition-colors text-slate-500 dark:text-slate-400"
-            title="偏好设置"
-          >
-            <Settings className="w-4 h-4" />
-          </button>
-        </div>
-      </div>
+      )}
 
-      {/* 最近配置折叠面板 */}
-      {showRecentConfigs && (
+      {/* 最近配置折叠面板 - 仅在非嵌入模式显示 */}
+      {!isEmbedded && showRecentConfigs && (
         <div className="px-4 sm:px-6 lg:px-8 py-3 bg-slate-50 dark:bg-slate-800/50 border-b border-slate-200 dark:border-slate-700">
           <RecentConfigs 
             compact

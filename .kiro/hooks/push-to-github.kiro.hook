@@ -1,0 +1,13 @@
+{
+  "enabled": true,
+  "name": "推送GitHub",
+  "description": "当发送\"推送github\"命令时，自动分析代码变更、生成提交注释，并将代码推送到GitHub",
+  "version": "1",
+  "when": {
+    "type": "userPrompt"
+  },
+  "then": {
+    "type": "askAgent",
+    "prompt": "用户请求推送代码到GitHub。请执行以下步骤：1. 运行 `git status` 查看当前变更；2. 运行 `git diff --staged` 或 `git diff` 分析具体的代码改动；3. 根据变更内容自动生成一个简洁、有意义的中文提交注释（格式如：feat: 新增xxx功能 / fix: 修复xxx问题 / docs: 更新文档等）；4. 执行 `git add .` 添加所有变更；5. 执行 `git commit -m \"生成的注释\"` 提交代码；6. 执行 `git push` 推送到远程仓库。完成后向用户报告推送结果。"
+  }
+}
