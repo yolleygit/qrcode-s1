@@ -168,13 +168,13 @@ const nextConfig: NextConfig = {
 
 ```json
 {
-    "kiroAgent.configureMCP": "Disabled",
+    "kiroAgent.configureMCP": "Enabled",
     "typescript.autoClosingTags": false
 }
 ```
 
 **配置说明**：
-- `kiroAgent.configureMCP: "Disabled"` - 禁用 Kiro Agent 的 MCP 自动配置功能，确保开发环境稳定性
+- `kiroAgent.configureMCP: "Enabled"` - 启用 Kiro Agent 的 MCP 自动配置功能，支持智能工具集成和自动化开发流程 ⭐ **最新更新**
 - `typescript.autoClosingTags: false` - 禁用 TypeScript/JSX 文件的自动闭合标签功能，提供更精确的代码控制
 
 > 💡 **开发提示**: 禁用自动闭合标签后，推荐使用 Emmet 快捷键（如 `div>Tab`）来快速生成标签结构。
@@ -188,11 +188,11 @@ const nextConfig: NextConfig = {
 - 📚 **文档更新** - 新增详细的配置变更和修复记录
 
 **配置说明**：
-- 🛡️ **Kiro Agent MCP**: 禁用 MCP 自动配置，确保开发环境稳定性和安全性 ⭐ **核心配置**
-  - **功能**: 禁用 Model Context Protocol 的自动配置功能
-  - **优势**: 采用手动管理模式，提供更好的控制和安全性
-  - **适用**: 适合需要精确控制开发环境的项目
-  - **状态**: 保持禁用状态，确保项目稳定运行
+- 🤖 **Kiro Agent MCP**: 启用 MCP 自动配置，支持智能工具集成和开发流程自动化 ⭐ **最新更新**
+  - **功能**: 启用 Model Context Protocol 的自动配置功能
+  - **优势**: 提供智能工具集成、自动化开发流程和 AI 辅助功能
+  - **适用**: 适合需要智能开发辅助和工具集成的现代项目
+  - **状态**: 已启用，支持 MCP 服务器自动发现和配置
 - 🔧 **TypeScript 自动闭合标签**: 禁用自动闭合标签功能 ⭐ **新增配置**
   - **功能**: 禁用 TypeScript/JSX 文件中的自动闭合标签
   - **优势**: 避免在复杂 JSX 结构中自动插入不需要的闭合标签
@@ -201,7 +201,7 @@ const nextConfig: NextConfig = {
 
 **配置特点**：
 - 🎯 **精确控制**: TypeScript 自动闭合标签已禁用，避免意外插入
-- 🛡️ **安全优先**: Kiro Agent MCP 保持禁用状态，确保开发环境安全
+- 🤖 **智能集成**: Kiro Agent MCP 已启用，支持智能工具集成和自动化开发流程 ⭐ **最新更新**
 - 📏 **团队统一**: 所有开发者使用相同的编辑器行为
 - 🔧 **高效开发**: 推荐使用 Emmet 快捷键提高开发效率
 - 👥 **团队友好**: 统一的项目配置，减少协作问题
@@ -214,9 +214,10 @@ const nextConfig: NextConfig = {
 
 详细配置说明请参考：
 - [开发环境配置指南](docs/development-setup.md)
-- [VS Code 配置更新记录](docs/vscode-config-update-2024-12-16.md) - 最新配置变更和代码修复详解 ⭐ **新增**
+- [VS Code MCP 配置启用](docs/vscode-mcp-config-enable-2024-12-16.md) - MCP 功能启用详解 ⭐ **最新更新**
+- [VS Code 配置更新记录](docs/vscode-config-update-2024-12-16.md) - 最新配置变更和代码修复详解
 - [VS Code TypeScript 配置指南](docs/vscode-typescript-config-guide.md) - 自动闭合标签配置详解
-- [根布局字体渲染优化](docs/layout-antialiased-removal-2024-12-16.md) - 字体渲染配置变更记录 ⭐ **最新**
+- [根布局字体渲染优化](docs/layout-antialiased-removal-2024-12-16.md) - 字体渲染配置变更记录
 - [GitHub 自动部署设置指南](docs/github-deployment-setup.md) - GitHub 自动部署配置详解
 
 ### 安装依赖
@@ -269,6 +270,8 @@ npm start
    - Node.js 版本：`18` 或 `20`
 4. 每次推送代码自动部署
 
+**重要说明**: 静态站点不需要 `wrangler.toml` 文件，Cloudflare Pages 会自动处理静态文件部署。
+
 **方式二：本地命令部署**
 ```bash
 # 构建项目
@@ -277,6 +280,12 @@ npm run build
 # 部署到 Cloudflare Pages
 npx wrangler pages deploy out --project-name qrcode-style
 ```
+
+**安全头配置**: 项目包含 `_headers` 文件，自动配置安全响应头：
+- X-Frame-Options: DENY - 防止页面被嵌入框架
+- X-Content-Type-Options: nosniff - 防止 MIME 类型嗅探
+- Referrer-Policy: strict-origin-when-cross-origin - 控制引用信息传递
+- Permissions-Policy - 限制浏览器功能权限
 
 - 🌐 **在线地址**: https://abbdc353.qrcode-style.pages.dev
 - ⚡ **部署速度**: 2.10 秒完成

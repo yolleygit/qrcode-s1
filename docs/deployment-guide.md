@@ -32,14 +32,18 @@ const nextConfig: NextConfig = {
 - ✅ 移除服务器端函数调用
 - ✅ 简化页面组件，移除服务端依赖
 
-### 3. 配置 Wrangler
-```toml
-name = "qrcode-style"
-compatibility_date = "2024-12-16"
-
-# For Cloudflare Pages static site
-pages_build_output_dir = "out"
+### 3. 安全头配置
+创建 `_headers` 文件配置安全响应头：
 ```
+# _headers
+/*
+  X-Frame-Options: DENY
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=()
+```
+
+**重要说明**: 静态站点不需要 `wrangler.toml` 文件，Cloudflare Pages 会自动处理静态文件部署。
 
 ### 4. 部署方式
 
@@ -62,6 +66,7 @@ pages_build_output_dir = "out"
    - **构建命令**: `npm run build`
    - **构建输出目录**: `out`
    - **Node.js 版本**: `18` 或 `20`
+   - **重要**: 无需 `wrangler.toml` 文件，Cloudflare Pages 自动处理静态文件
 
 4. **自动部署优势**：
    - 🔄 每次推送代码自动部署
@@ -108,6 +113,7 @@ npx wrangler pages deploy out --project-name qrcode-style
 - **极快加载速度**: CDN 边缘缓存，全球访问优化
 - **高可用性**: Cloudflare 99.9% 可用性保证
 - **自动扩展**: 无需担心流量峰值
+- **安全防护**: 自动应用安全响应头，防护常见攻击
 
 ## 📋 功能验证清单
 
