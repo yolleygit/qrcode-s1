@@ -74,14 +74,16 @@
     - 自动布局切换：horizontal / vertical / stacked
 - 🔐 **TOTP 动态验证码** - 支持生成 Google Authenticator 兼容的动态验证码二维码
   - ✅ **核心算法已完成** - TOTP 算法、密钥生成、Base32 编码和 OTPAuth URI 生成
-  - ✅ **用户界面已完成** - 完整的配置表单、二维码显示和验证码展示 ！
+  - ✅ **用户界面已完成** - 完整的配置表单、二维码显示和验证码展示
   - ✅ **定时器服务已完成** - 30秒倒计时、自动更新和高精度计时
-  - 🔄 **UI界面优化进行中** - 集成所见即所得体验，实现一体化界面
-    - ✅ **统一页面布局** - 使用UnifiedPageLayout，与其他页面保持一致
-    - ✅ **实时预览系统** - 集成useRealTimePreview，输入密钥后立即生成二维码
-    - ✅ **左右分栏布局** - 桌面端分栏显示，移动端垂直堆叠
-    - 🔄 **SmartLayout集成** - 应用无滚动布局系统 (待实施)
-  - 🔄 **测试和优化中** - 功能测试、兼容性验证和性能优化
+  - 🔄 **核心功能实现进行中** - 从模拟功能向真实功能转变 ⭐ **最新更新**
+    - ✅ **技术栈升级** - 新增 otplib 和 qrcode 核心依赖包 (2024年12月16日)
+    - ✅ **React Hooks 扩展** - 新增 useEffect 和 useRef 支持定时器和 DOM 操作
+    - ✅ **图标组件扩展** - 新增 RefreshCw 图标支持手动刷新功能
+    - 🔄 **真实验证码生成** - 基于 otplib 的实时 TOTP 验证码生成 (开发中)
+    - 🔄 **真实二维码渲染** - 使用 qrcode 库生成可扫描的二维码图片 (开发中)
+    - 🔄 **定时刷新机制** - 验证码每30秒自动更新和手动刷新 (计划中)
+  - 📅 **预计完成** - 1-2周内完成全部真实功能实现
 - ⏰ **实时验证码显示** - 每30秒自动更新的验证码和倒计时
 - 🔧 **高级配置选项** - 支持多种哈希算法、验证码长度和时间窗口
 - ✅ **验证码校验** - 内置验证码校验功能确保配置正确性
@@ -93,15 +95,25 @@
   - ✅ **二维码服务** - 完整的加密数据序列化和二维码生成
   - ✅ **伪装保护系统** - 双层内容保护和安全内容切换
   - ✅ **主服务集成** - 统一的加密解密服务接口
-  - 🔄 **用户界面开发中** - 加密/解密页面组件实现
-  - 📅 **预计发布** - 2025年第二季度 MVP 版本
+  - 🔄 **核心功能实现进行中** - 从模拟功能向真实功能转变 ⭐ **最新更新**
+    - ✅ **技术栈升级** - 新增 crypto-js 和 qrcode 核心依赖包 (2024年12月16日)
+    - ✅ **React Hooks 扩展** - 新增 useCallback 和 useEffect 支持性能优化和自动化流程
+    - ✅ **图标组件扩展** - 新增 RefreshCw 图标支持手动重新生成功能
+    - 🔄 **真实加密功能** - 基于 crypto-js 的多级 AES 加密实现 (开发中)
+    - 🔄 **真实二维码渲染** - 使用 qrcode 库生成包含加密数据的二维码 (开发中)
+    - 🔄 **伪装模式实现** - 数据伪装和隐蔽性保护功能 (计划中)
+  - 📅 **预计完成** - 1-2周内完成核心加密功能，2025年第二季度发布完整版本
 
 ## 🛠️ 技术栈
 
 - **框架**: Next.js 16 (App Router)
 - **样式**: Tailwind CSS v4
-- **二维码生成**: qr-code-styling
-- **图标**: Lucide React
+- **字体渲染**: 浏览器默认策略（根布局简化，字体配置由国际化布局控制）
+- **架构**: 简化根布局 + 功能完整的国际化布局
+- **二维码生成**: qr-code-styling (美化二维码) + qrcode (TOTP/加密二维码)
+- **TOTP 算法**: otplib - 符合 RFC 6238 标准的专业 TOTP 实现
+- **加密算法**: crypto-js - 军用级 AES 加密算法库，支持 AES-128/256/256-GCM
+- **图标**: Lucide React (包含 RefreshCw 等新图标)
 - **主题**: next-themes
 - **国际化**: next-intl
 - **UI设计**: 响应式设计、移动优先、卡片式布局
@@ -114,14 +126,16 @@
 **重要更新 (2024年12月16日)**: 项目已配置为**静态导出模式**，支持部署到任何静态托管服务。
 
 **🎉 部署成功** - 项目已成功部署到 Cloudflare Pages：
-- 🌐 **在线访问**: https://89591afe.qrcode-style.pages.dev
+- 🌐 **在线访问**: https://abbdc353.qrcode-style.pages.dev
 - ✅ **部署状态**: 生产环境运行中
-- 📦 **文件数量**: 139 个静态文件
-- ⏱️ **部署时间**: 仅需 3.81 秒
+- 📦 **文件数量**: 92 个静态文件
+- ⏱️ **部署时间**: 仅需 2.10 秒
+- 🔄 **自动部署**: 支持 GitHub 自动部署流程
 
 **部署配置**：
 - `next.config.ts`: 启用静态导出模式
 - `middleware.ts`: 禁用服务端中间件以支持静态导出
+- **GitHub 集成**: 支持推送代码自动部署
 
 ```typescript
 // next.config.ts
@@ -165,11 +179,13 @@ const nextConfig: NextConfig = {
 
 > 💡 **开发提示**: 禁用自动闭合标签后，推荐使用 Emmet 快捷键（如 `div>Tab`）来快速生成标签结构。
 
-**最新更新 (2024年12月16日)** ✅ **配置已生效**：
-- ✅ **新增配置** - 添加 `typescript.autoClosingTags: false` 设置 **已应用**
+**最新更新 (2024年12月16日)** ✅ **配置维护完成**：
+- ✅ **配置确认** - 确认 `typescript.autoClosingTags: false` 设置已正确应用
+- 🔨 **代码修复** - 修复了 TOTP 组件中的严重语法错误
 - 🎯 **精确控制** - 避免自动插入标签导致的代码结构问题
 - 👥 **团队统一** - 确保所有开发者使用相同的编辑器行为
-- 🔄 **实时同步** - 配置文件变更已自动检测并验证生效
+- 🐛 **问题解决** - 配置有效预防了自动标签插入导致的语法错误
+- 📚 **文档更新** - 新增详细的配置变更和修复记录
 
 **配置说明**：
 - 🛡️ **Kiro Agent MCP**: 禁用 MCP 自动配置，确保开发环境稳定性和安全性 ⭐ **核心配置**
@@ -198,7 +214,10 @@ const nextConfig: NextConfig = {
 
 详细配置说明请参考：
 - [开发环境配置指南](docs/development-setup.md)
+- [VS Code 配置更新记录](docs/vscode-config-update-2024-12-16.md) - 最新配置变更和代码修复详解 ⭐ **新增**
 - [VS Code TypeScript 配置指南](docs/vscode-typescript-config-guide.md) - 自动闭合标签配置详解
+- [根布局字体渲染优化](docs/layout-antialiased-removal-2024-12-16.md) - 字体渲染配置变更记录 ⭐ **最新**
+- [GitHub 自动部署设置指南](docs/github-deployment-setup.md) - GitHub 自动部署配置详解
 
 ### 安装依赖
 
@@ -240,6 +259,17 @@ npm start
 #### 部署到静态托管
 
 **🎉 Cloudflare Pages 部署（已成功）**：
+
+**方式一：GitHub 自动部署（推荐）**
+1. 推送代码到 GitHub 仓库
+2. 在 Cloudflare Pages 中连接 GitHub 仓库
+3. 配置构建设置：
+   - 构建命令：`npm run build`
+   - 构建输出目录：`out`
+   - Node.js 版本：`18` 或 `20`
+4. 每次推送代码自动部署
+
+**方式二：本地命令部署**
 ```bash
 # 构建项目
 npm run build
@@ -247,9 +277,11 @@ npm run build
 # 部署到 Cloudflare Pages
 npx wrangler pages deploy out --project-name qrcode-style
 ```
-- 🌐 **在线地址**: https://89591afe.qrcode-style.pages.dev
-- ⚡ **部署速度**: 3.81 秒完成
+
+- 🌐 **在线地址**: https://abbdc353.qrcode-style.pages.dev
+- ⚡ **部署速度**: 2.10 秒完成
 - 🌍 **全球CDN**: 自动分发到全球节点
+- 🔄 **自动部署**: 支持 GitHub 集成
 
 **GitHub Pages 部署**：
 ```bash
@@ -283,13 +315,13 @@ npm run build
 - 英文: `http://localhost:3001/en`
 
 **在线访问（Cloudflare Pages）**：
-- 🇨🇳 中文版: https://89591afe.qrcode-style.pages.dev/zh
-- 🇺🇸 英文版: https://89591afe.qrcode-style.pages.dev/en
+- 🇨🇳 中文版: https://abbdc353.qrcode-style.pages.dev/zh
+- 🇺🇸 英文版: https://abbdc353.qrcode-style.pages.dev/en
 
 **功能页面**：
-- 📱 静态二维码: https://89591afe.qrcode-style.pages.dev/zh/static
-- 🔐 加密二维码: https://89591afe.qrcode-style.pages.dev/zh/encrypted-qr
-- 🔑 TOTP验证码: https://89591afe.qrcode-style.pages.dev/zh/totp
+- 📱 静态二维码: https://abbdc353.qrcode-style.pages.dev/zh/static
+- 🔐 加密二维码: https://abbdc353.qrcode-style.pages.dev/zh/encrypted-qr
+- 🔑 TOTP验证码: https://abbdc353.qrcode-style.pages.dev/zh/totp
 
 默认语言为中文，访问根路径会自动重定向到 `/zh`。
 
@@ -327,31 +359,58 @@ npm run build
 5. 导出为 GIF、MP4 或 SVG 动画格式
 6. 保存动画配置以便重复使用
 
-### TOTP 动态验证码生成 (开发中)
+### TOTP 动态验证码生成 (核心功能开发中)
 1. 访问 `http://localhost:3001/totp` 页面
-2. 输入服务名称（如 "GitHub"）和账户名（如 "user@example.com"）
-3. 系统自动生成32位Base32密钥和对应的二维码
-4. 使用 Google Authenticator 等应用扫描二维码
-5. 查看实时更新的6位验证码和30秒倒计时
-6. 可选功能（后续版本）：
+2. 输入 TOTP 密钥（Base32 编码，如 "JBSWY3DPEHPK3PXP"）
+3. 可选输入账户名称（如 "user@example.com"）用于显示
+4. **即将实现的功能** (基于新增的技术栈)：
+   - ✅ **真实二维码生成** - 使用 qrcode 库生成可扫描的二维码
+   - ✅ **实时验证码** - 基于 otplib 生成真实的6位 TOTP 验证码
+   - ✅ **自动刷新** - 每30秒自动更新验证码和倒计时
+   - ✅ **手动刷新** - 使用 RefreshCw 图标支持手动刷新功能
+5. 使用 Google Authenticator 等应用扫描生成的二维码
+6. 查看实时更新的6位验证码和剩余有效时间
+7. 高级功能（后续版本）：
    - 自定义哈希算法（SHA-1/SHA-256/SHA-512）
    - 调整验证码长度（6位/8位）
    - 设置时间窗口（15秒/30秒/60秒）
    - 验证码校验和配置导出
 
-### 加密二维码生成 (规划中)
-1. 访问 `http://localhost:3001/encrypted` 页面
+**技术升级说明** (2024年12月16日)：
+- 🔧 **otplib 集成** - 专业的 TOTP 算法库，确保标准合规性
+- 🎨 **qrcode 集成** - 高性能二维码生成，支持多种输出格式
+- ⚡ **React Hooks 优化** - 使用 useEffect 和 useRef 实现定时器和 DOM 操作
+- 🔄 **实时交互** - 支持验证码的自动和手动刷新功能
+
+### 加密二维码生成 (核心功能开发中)
+1. 访问 `http://localhost:3001/encrypted-qr` 页面
 2. 输入要加密的敏感数据（密码、私钥、个人信息等）
-3. 设置强密码（最少12位，包含大小写字母、数字、特殊字符）
-4. 选择伪装文本（显示给未授权用户的无害内容）
-5. 选择加密算法（AES-256-GCM 或 ChaCha20-Poly1305）
-6. 生成加密二维码，外观与普通二维码无异
-7. 解密时扫描二维码，输入密码即可获取真实数据
-8. 高级功能：
+3. 设置强密码（推荐12位以上，包含大小写字母、数字、特殊字符）
+4. 选择加密级别：
+   - **AES-128** - 快速加密，适合一般数据
+   - **AES-256** - 推荐级别，平衡安全性和性能
+   - **AES-256-GCM** - 最高安全级别，提供完整性验证
+5. 可选启用伪装模式，让二维码看起来像普通内容
+6. **即将实现的功能** (基于新增的技术栈)：
+   - ✅ **真实加密** - 使用 crypto-js 实现军用级 AES 加密
+   - ✅ **实时二维码生成** - 基于 qrcode 库生成包含加密数据的二维码
+   - ✅ **自动化流程** - 内容变化时自动重新加密和生成二维码
+   - ✅ **性能优化** - 使用 useCallback 优化加密函数性能
+   - ✅ **手动刷新** - 使用 RefreshCw 图标支持手动重新生成功能
+7. 生成的加密二维码外观与普通二维码无异，确保隐蔽性
+8. 解密时扫描二维码，输入正确密码即可获取真实数据
+9. 高级功能（后续版本）：
+   - 伪装模式 - 将加密数据伪装成普通文本或URL
+   - 批量加密处理和配置管理
    - 自定义二维码样式和 Logo
-   - 批量加密处理
    - 多种输出格式（PNG、SVG、PDF）
    - 完整性验证和防篡改检测
+
+**技术升级说明** (2024年12月16日)：
+- 🔐 **crypto-js 集成** - 专业的加密算法库，支持多种 AES 加密模式
+- 🎨 **qrcode 集成** - 高性能二维码生成，支持加密数据的可视化
+- ⚡ **React Hooks 优化** - 使用 useCallback 和 useEffect 实现性能优化和自动化
+- 🔄 **实时交互** - 支持加密数据的自动和手动重新生成功能
 
 ## 📄 License
 
@@ -426,3 +485,40 @@ https://mhimg.clewm.net/cli/images/eye/e6.png
 https://mhimg.clewm.net/cli/images/eye/e8.png
 https://mhimg.clewm.net/cli/images/eye/e7.png
 https://mhimg.clewm.net/cli/images/eye/e22.png
+
+## 🏗️ 项目架构更新 - 2024年12月16日
+
+### 根布局架构简化
+**重要变更**: 项目架构已进行重大优化，根布局 `app/layout.tsx` 已简化为只返回 children，HTML 结构完全转移到国际化布局。
+
+**新的架构层级**:
+```
+app/layout.tsx (根布局)
+├── 全局元数据定义 (title, description)
+├── 全局样式导入 (globals.css)
+└── 直接返回 children (不包含 HTML 结构)
+
+app/[locale]/layout.tsx (国际化布局)
+├── 完整 HTML 结构 (<html>, <body>)
+├── 字体配置 (Geist Sans, Geist Mono)
+├── 主题提供者 (ThemeProvider)
+├── 错误边界 (ErrorBoundary)
+├── Toast 提供者 (ToastProvider)
+└── 离线状态横幅 (OfflineBanner)
+```
+
+**架构优势**:
+- ✅ **职责分离** - 根布局专注元数据，国际化布局处理页面结构
+- ✅ **维护简化** - 减少根布局复杂度，便于维护
+- ✅ **国际化优化** - HTML 结构完全由国际化布局控制
+- ✅ **扩展性提升** - 便于后续添加更多布局层级
+
+**字体渲染配置现状**:
+- **根布局**: 已简化，不涉及字体渲染配置
+- **国际化布局**: 目前仍使用 `antialiased` 类名
+- **建议**: 为保持一致性，建议在国际化布局中也移除 `antialiased`
+
+**相关文档**:
+- [根布局架构简化详解](docs/root-layout-simplification-2024-12-16.md) - 完整的架构变更说明
+- [字体渲染最佳实践](docs/font-rendering-best-practices.md) - 字体渲染配置指南
+- [布局配置历史记录](docs/layout-antialiased-removal-2024-12-16.md) - 之前的配置变更记录

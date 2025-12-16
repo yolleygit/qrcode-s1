@@ -22,7 +22,10 @@ TOTP（Time-based One-Time Password）动态验证码功能为 QR Master 提供�
 - **二维码生成和显示** - 集成 qr-code-styling 的高质量二维码
 
 ### 🔧 开发中功能
-- 功能测试和验证
+- **核心功能实现** - 基于 otplib 的真实 TOTP 验证码生成 (进行中)
+- **二维码渲染** - 使用 qrcode 库生成真实的二维码图片 (进行中)
+- **定时刷新机制** - 验证码每30秒自动更新 (计划中)
+- **手动刷新功能** - 用户可手动刷新验证码 (计划中)
 - 兼容性测试（Google Authenticator 等应用）
 - 性能优化和错误处理
 - 移动端体验优化
@@ -141,10 +144,25 @@ TOTP 模块架构
 
 ### 技术栈
 - **前端框架**：React 18 + TypeScript
-- **加密库**：crypto-js
-- **二维码**：qr-code-styling（复用现有）
-- **状态管理**：React Hooks
+- **TOTP 算法库**：otplib - 符合 RFC 6238 标准的 TOTP 实现
+- **二维码生成**：qrcode - 高性能二维码生成库
+- **加密库**：crypto-js（备用）
+- **状态管理**：React Hooks (useState, useEffect, useRef, useCallback)
 - **样式系统**：Tailwind CSS（复用现有）
+- **图标库**：Lucide React（包含 RefreshCw 等新图标）
+
+### 最新技术更新 (2024年12月16日)
+**核心依赖升级**：
+- ✅ **otplib** - 专业的 TOTP/HOTP 算法库，替代自研实现
+- ✅ **qrcode** - 轻量级二维码生成库，支持多种输出格式
+- ✅ **React Hooks 扩展** - 新增 useEffect 和 useRef 支持定时器和 DOM 操作
+- ✅ **图标组件扩展** - 新增 RefreshCw 图标支持手动刷新功能
+
+**技术优势**：
+- 🔒 **标准合规** - otplib 完全符合 RFC 6238 和 RFC 4226 标准
+- ⚡ **性能优化** - qrcode 库提供高效的二维码生成性能
+- 🛠️ **开发友好** - 成熟的库减少自研风险，提升开发效率
+- 🔄 **实时更新** - 支持验证码定时刷新和手动刷新功能
 
 ### 标准兼容
 - **RFC 6238**：TOTP 算法标准

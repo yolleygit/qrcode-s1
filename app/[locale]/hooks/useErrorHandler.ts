@@ -1,6 +1,6 @@
 'use client';
 
-import { useCallback, useState } from 'react';
+import { useCallback, useState, useEffect } from 'react';
 
 export interface ErrorInfo {
   message: string;
@@ -172,11 +172,9 @@ function getUserFriendlyMessage(errorInfo: ErrorInfo): string {
 
 // 网络状态检测Hook
 export function useNetworkStatus() {
-  const [isOnline, setIsOnline] = useState(
-    typeof navigator !== 'undefined' ? navigator.onLine : true
-  );
-
+  const [isOnline, setIsOnline] = useState(true); // 默认为true避免hydration mismatch
   const [networkError, setNetworkError] = useState<string | null>(null);
+  const [mounted, setMounted] = useState(false);
 
   const checkNetworkStatus = useCallback(() => {
     if (typeof navigator !== 'undefined') {
@@ -194,9 +192,14 @@ export function useNetworkStatus() {
     return true;
   }, []);
 
-  // 监听网络状态变化
-  useState(() => {
+  // 初始化和监听网络状态变化
+  useEffect(() => {
     if (typeof window !== 'undefined') {
+      setMounted(true);
+      
+      // 初始化网络状态
+      setIsOnline(navigator.onLine);
+      
       const handleOnline = () => {
         setIsOnline(true);
         setNetworkError(null);
@@ -215,10 +218,10 @@ export function useNetworkStatus() {
         window.removeEventListener('offline', handleOffline);
       };
     }
-  });
+  }, []);
 
   return {
-    isOnline,
+    isOnline: mounted ? isOnline : true, // 在mounted之前始终返回true
     networkError,
     checkNetworkStatus
   };

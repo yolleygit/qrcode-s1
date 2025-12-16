@@ -16,8 +16,15 @@ export function NetworkStatus({
   const { isOnline, networkError } = useNetworkStatus();
   const [showStatus, setShowStatus] = useState(false);
   const [wasOffline, setWasOffline] = useState(false);
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  useEffect(() => {
+    if (!mounted) return;
+    
     if (!isOnline) {
       setShowStatus(true);
       setWasOffline(true);
@@ -33,9 +40,9 @@ export function NetworkStatus({
     } else if (showWhenOnline) {
       setShowStatus(true);
     }
-  }, [isOnline, wasOffline, showWhenOnline]);
+  }, [isOnline, wasOffline, showWhenOnline, mounted]);
 
-  if (!showStatus) {
+  if (!mounted || !showStatus) {
     return null;
   }
 
@@ -91,8 +98,15 @@ export function NetworkIndicator({ className = "" }: { className?: string }) {
 export function OfflineBanner() {
   const { isOnline } = useNetworkStatus();
   const [show, setShow] = useState(false);
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  useEffect(() => {
+    if (!mounted) return;
+    
     if (!isOnline) {
       setShow(true);
     } else {
@@ -100,9 +114,9 @@ export function OfflineBanner() {
       const timer = setTimeout(() => setShow(false), 1000);
       return () => clearTimeout(timer);
     }
-  }, [isOnline]);
+  }, [isOnline, mounted]);
 
-  if (!show) {
+  if (!mounted || !show) {
     return null;
   }
 

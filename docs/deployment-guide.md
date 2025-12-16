@@ -4,11 +4,12 @@
 
 **项目已成功部署到 Cloudflare Pages！**
 
-- 🌐 **部署地址**: https://89591afe.qrcode-style.pages.dev
+- 🌐 **部署地址**: https://abbdc353.qrcode-style.pages.dev
 - ✅ **状态**: 生产环境运行中
-- 📦 **文件数量**: 139 个静态文件
-- ⏱️ **部署时间**: 仅需 3.81 秒
+- 📦 **文件数量**: 92 个静态文件
+- ⏱️ **部署时间**: 仅需 2.10 秒
 - 🌍 **全球CDN**: 自动分发到全球节点
+- 🔄 **自动部署**: 已配置 GitHub 自动部署流程
 
 ## 解决方案实施过程
 
@@ -40,7 +41,35 @@ compatibility_date = "2024-12-16"
 pages_build_output_dir = "out"
 ```
 
-### 4. 部署命令
+### 4. 部署方式
+
+#### 方式一：GitHub 自动部署（推荐）
+1. **推送代码到 GitHub**：
+   ```bash
+   git add .
+   git commit -m "配置 Cloudflare Pages 静态导出"
+   git push origin main
+   ```
+
+2. **在 Cloudflare Dashboard 中连接 GitHub**：
+   - 访问 [Cloudflare Pages Dashboard](https://dash.cloudflare.com/pages)
+   - 选择项目 `qrcode-style`
+   - 进入 Settings > Source
+   - 连接 GitHub 仓库
+   - 选择分支（通常是 `main`）
+
+3. **配置构建设置**：
+   - **构建命令**: `npm run build`
+   - **构建输出目录**: `out`
+   - **Node.js 版本**: `18` 或 `20`
+
+4. **自动部署优势**：
+   - 🔄 每次推送代码自动部署
+   - 📊 部署历史记录
+   - 🌿 分支预览功能
+   - 🔒 更安全的部署流程
+
+#### 方式二：本地命令部署
 ```bash
 # 构建静态文件
 npm run build
@@ -52,18 +81,18 @@ npx wrangler pages deploy out --project-name qrcode-style
 ## 🌐 可访问的页面
 
 ### 主要页面
-- 🏠 **主页（中文）**: https://89591afe.qrcode-style.pages.dev/zh
-- 🌍 **主页（英文）**: https://89591afe.qrcode-style.pages.dev/en
+- 🏠 **主页（中文）**: https://abbdc353.qrcode-style.pages.dev/zh
+- 🌍 **主页（英文）**: https://abbdc353.qrcode-style.pages.dev/en
 
 ### 功能页面
-- 📱 **静态二维码**: https://89591afe.qrcode-style.pages.dev/zh/static
-- 🔐 **加密二维码**: https://89591afe.qrcode-style.pages.dev/zh/encrypted-qr
-- 🔑 **TOTP验证码**: https://89591afe.qrcode-style.pages.dev/zh/totp
+- 📱 **静态二维码**: https://abbdc353.qrcode-style.pages.dev/zh/static
+- 🔐 **加密二维码**: https://abbdc353.qrcode-style.pages.dev/zh/encrypted-qr
+- 🔑 **TOTP验证码**: https://abbdc353.qrcode-style.pages.dev/zh/totp
 
 ### 英文版本
-- 📱 **Static QR**: https://89591afe.qrcode-style.pages.dev/en/static
-- 🔐 **Encrypted QR**: https://89591afe.qrcode-style.pages.dev/en/encrypted-qr
-- 🔑 **TOTP Generator**: https://89591afe.qrcode-style.pages.dev/en/totp
+- 📱 **Static QR**: https://abbdc353.qrcode-style.pages.dev/en/static
+- 🔐 **Encrypted QR**: https://abbdc353.qrcode-style.pages.dev/en/encrypted-qr
+- 🔑 **TOTP Generator**: https://abbdc353.qrcode-style.pages.dev/en/totp
 
 ## 🚀 部署性能
 
@@ -146,4 +175,4 @@ npx wrangler pages deploy out --project-name qrcode-style
 
 *部署指南最后更新: 2024年12月16日*  
 *部署状态: ✅ 生产环境运行中*  
-*在线地址: https://89591afe.qrcode-style.pages.dev*
+*在线地址: https://abbdc353.qrcode-style.pages.dev*
