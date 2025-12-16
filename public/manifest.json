@@ -1,0 +1,125 @@
+{
+  "name": "QR Master - 专业二维码生成工具",
+  "short_name": "QR Master",
+  "description": "功能强大的二维码生成工具，支持静态、动态验证码和加密二维码",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#4f46e5",
+  "orientation": "portrait-primary",
+  "scope": "/",
+  "lang": "zh-CN",
+  "categories": ["productivity", "utilities"],
+  "icons": [
+    {
+      "src": "/icons/icon-72x72.png",
+      "sizes": "72x72",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "/icons/icon-96x96.png",
+      "sizes": "96x96",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "/icons/icon-128x128.png",
+      "sizes": "128x128",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "/icons/icon-144x144.png",
+      "sizes": "144x144",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "/icons/icon-152x152.png",
+      "sizes": "152x152",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "/icons/icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "/icons/icon-384x384.png",
+      "sizes": "384x384",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "/icons/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable any"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "快速生成",
+      "short_name": "生成",
+      "description": "快速生成静态二维码",
+      "url": "/#quick-generate",
+      "icons": [
+        {
+          "src": "/icons/shortcut-generate.png",
+          "sizes": "96x96"
+        }
+      ]
+    },
+    {
+      "name": "动态验证码",
+      "short_name": "TOTP",
+      "description": "生成TOTP动态验证码",
+      "url": "/totp",
+      "icons": [
+        {
+          "src": "/icons/shortcut-totp.png",
+          "sizes": "96x96"
+        }
+      ]
+    },
+    {
+      "name": "加密二维码",
+      "short_name": "加密",
+      "description": "生成加密二维码",
+      "url": "/encrypted-qr",
+      "icons": [
+        {
+          "src": "/icons/shortcut-encrypted.png",
+          "sizes": "96x96"
+        }
+      ]
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "/screenshots/desktop-home.png",
+      "sizes": "1280x720",
+      "type": "image/png",
+      "form_factor": "wide",
+      "label": "QR Master 桌面端主页"
+    },
+    {
+      "src": "/screenshots/mobile-home.png",
+      "sizes": "390x844",
+      "type": "image/png",
+      "form_factor": "narrow",
+      "label": "QR Master 移动端主页"
+    }
+  ],
+  "related_applications": [],
+  "prefer_related_applications": false,
+  "edge_side_panel": {
+    "preferred_width": 400
+  },
+  "launch_handler": {
+    "client_mode": "navigate-existing"
+  }
+}

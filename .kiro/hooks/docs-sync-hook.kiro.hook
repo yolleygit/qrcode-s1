@@ -1,0 +1,25 @@
+{
+  "enabled": true,
+  "name": "文档同步钩子",
+  "description": "监听TypeScript源文件、配置文件和国际化文件的变更，当这些文件发生改变时，自动请求AI代理更新README.md和docs文件夹中的相关文档，并添加中文注解",
+  "version": "1",
+  "when": {
+    "type": "fileEdited",
+    "patterns": [
+      "*.tsx",
+      "*.ts",
+      "*.json",
+      "*.md",
+      "*.mjs",
+      "*.css",
+      "next.config.ts",
+      "middleware.ts",
+      "package.json",
+      "tsconfig.json"
+    ]
+  },
+  "then": {
+    "type": "askAgent",
+    "prompt": "源代码文件已更新。请分析变更内容并相应地更新项目文档：\n\n1. 如果是功能性变更，请更新README.md中的相关部分\n2. 如果是API或配置变更，请更新docs/文件夹中的相关文档\n3. 为所有更新的文档添加中文注解和说明\n4. 确保文档与代码变更保持同步\n5. 如果有新功能，请在文档中添加使用示例\n\n请用中文回复并提供详细的文档更新建议。"
+  }
+}

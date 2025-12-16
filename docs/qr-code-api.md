@@ -1,11 +1,21 @@
-# QR Code Styling
+# QR Code Styling API 文档
+
 [![Version](https://img.shields.io/npm/v/qr-code-styling.svg)](https://www.npmjs.org/package/qr-code-styling)
 
-JavaScript library for generating QR codes with a logo and styling.
+QR Master 使用的二维码生成和样式库，支持 Logo、自定义样式和动画效果。
 
-Try it here https://qr-code-styling.com
+在线体验：https://qr-code-styling.com
 
-If you have issues / suggestions / notes / questions, please open an issue or contact me. Let's create a cool library together.
+## 扩展功能
+
+QR Master 在原有 qr-code-styling 基础上扩展了以下功能：
+
+- **动画效果支持** - 颜色渐变、形状变换、呼吸效果
+- **动画导出** - GIF、MP4、SVG 动画格式
+- **移动端优化** - 响应式设计和性能优化
+- **配置管理** - 动画配置的保存和加载
+
+详细的动画功能 API 请参考：[变化二维码 API 文档](./animated-qr-api.md)
 ### Examples
 <p float="left">
 <img style="display:inline-block" src="https://raw.githubusercontent.com/kozakdenys/qr-code-styling/master/src/assets/facebook_example_new.png" width="240" />

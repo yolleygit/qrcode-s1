@@ -3,7 +3,10 @@
         "features": "Features",
         "testimonials": "Testimonials",
         "faq": "FAQ",
-        "contact": "Contact"
+        "contact": "Contact",
+        "totp": "TOTP Authenticator",
+        "encrypted": "Encrypted QR",
+        "uiOptimization": "UI Optimization"
     },
     "hero": {
         "badge": "Free · No Registration",
@@ -175,6 +178,223 @@
             "M": "M (15%)",
             "Q": "Q (25%)",
             "H": "H (30%)"
+        },
+        "aiMagic": "AI Magic"
+    },
+    "animatedQR": {
+        "title": "Animated QR Code",
+        "subtitle": "Add dynamic visual effects to your QR codes",
+        "description": "Support gradient animations, shape transformations, and breathing effects to make your QR codes more attractive",
+        "enableAnimation": "Enable Animation",
+        "animationType": "Animation Type",
+        "animationTypes": {
+            "gradient": "Gradient Animation",
+            "shapeTransform": "Shape Transform Animation",
+            "breathing": "Breathing Effect"
+        },
+        "gradientAnimation": {
+            "title": "Gradient Animation",
+            "description": "Create flowing color change effects",
+            "startColor": "Start Color",
+            "endColor": "End Color",
+            "gradientMode": "Gradient Mode",
+            "gradientModes": {
+                "linear": "Linear Gradient",
+                "radial": "Radial Gradient",
+                "conic": "Conic Gradient"
+            },
+            "direction": "Gradient Direction",
+            "speed": "Animation Speed"
+        },
+        "shapeTransform": {
+            "title": "Shape Transform Animation",
+            "description": "Achieve shape changes of QR code elements",
+            "fromShape": "From Shape",
+            "toShape": "To Shape",
+            "shapes": {
+                "square": "Square",
+                "circle": "Circle",
+                "rounded": "Rounded Rectangle",
+                "diamond": "Diamond"
+            },
+            "period": "Transform Period",
+            "transition": "Transition Effect",
+            "transitions": {
+                "smooth": "Smooth",
+                "elastic": "Elastic",
+                "bounce": "Bounce"
+            },
+            "maintainStructure": "Maintain Structure Integrity"
+        },
+        "breathing": {
+            "title": "Breathing Effect",
+            "description": "Add breathing animation with scaling or opacity changes",
+            "mode": "Breathing Mode",
+            "modes": {
+                "scale": "Scale Mode",
+                "opacity": "Opacity Mode",
+                "both": "Mixed Mode"
+            },
+            "intensity": "Breathing Intensity",
+            "period": "Breathing Period",
+            "centerFixed": "Center Fixed"
+        },
+        "preview": {
+            "title": "Real-time Preview",
+            "play": "Play",
+            "pause": "Pause",
+            "reset": "Reset",
+            "progress": "Progress",
+            "loop": "Loop Playback",
+            "frameRate": "Frame Rate",
+            "performance": "Performance Status",
+            "memoryUsage": "Memory Usage"
+        },
+        "export": {
+            "title": "Export Animation",
+            "format": "Export Format",
+            "formats": {
+                "gif": "GIF Animation",
+                "mp4": "MP4 Video",
+                "svg": "SVG Animation"
+            },
+            "quality": "Export Quality",
+            "qualities": {
+                "high": "High Quality",
+                "medium": "Medium Quality",
+                "low": "Low Quality"
+            },
+            "frameRate": "Frame Rate",
+            "duration": "Duration",
+            "loopCount": "Loop Count",
+            "infinite": "Infinite Loop",
+            "fileSize": "File Size Limit",
+            "startExport": "Start Export",
+            "exportProgress": "Export Progress",
+            "estimatedTime": "Estimated Completion Time",
+            "download": "Download File"
+        },
+        "config": {
+            "title": "Configuration Management",
+            "save": "Save Configuration",
+            "load": "Load Configuration",
+            "manage": "Manage Configurations",
+            "configName": "Configuration Name",
+            "description": "Description",
+            "createdAt": "Created At",
+            "actions": "Actions",
+            "rename": "Rename",
+            "delete": "Delete",
+            "export": "Export Configuration",
+            "import": "Import Configuration",
+            "share": "Share Configuration",
+            "apply": "Apply Configuration",
+            "confirmDelete": "Confirm deletion of this configuration?",
+            "invalidConfig": "Invalid configuration file",
+            "configSaved": "Configuration saved",
+            "configLoaded": "Configuration loaded"
+        },
+        "mobile": {
+            "title": "Mobile Optimization",
+            "autoQuality": "Auto Quality Adjustment",
+            "powerSaving": "Power Saving Mode",
+            "networkOptimization": "Network Optimization",
+            "touchGestures": "Touch Gestures",
+            "responsiveLayout": "Responsive Layout"
+        },
+        "tips": {
+            "title": "Usage Tips",
+            "scanability": "Ensure animations don't affect QR code scanability",
+            "performance": "Use simpler animation effects on mobile devices",
+            "fileSize": "Choose appropriate quality settings to balance file size and effects",
+            "colorContrast": "Maintain sufficient color contrast to ensure scanability",
+            "animationSpeed": "Slower animation speeds usually work better"
+        },
+        "errors": {
+            "invalidConfig": "Invalid animation configuration",
+            "renderFailed": "Animation rendering failed",
+            "exportFailed": "Export failed",
+            "performanceWarning": "Performance warning: animation may stutter",
+            "compatibilityError": "Browser compatibility error",
+            "fileSizeExceeded": "File size exceeded limit",
+            "networkError": "Network error",
+            "memoryError": "Insufficient memory"
+        },
+        "success": {
+            "configSaved": "Configuration saved successfully",
+            "configLoaded": "Configuration loaded successfully",
+            "exportCompleted": "Export completed",
+            "animationGenerated": "Animation generated successfully"
+        }
+    },
+    "totp": {
+        "title": "TOTP Authenticator",
+        "subtitle": "Generate TOTP two-factor authentication QR codes",
+        "description": "Create Google Authenticator compatible dynamic codes that update every 30 seconds",
+        "serviceName": "Service Name",
+        "serviceNamePlaceholder": "e.g., GitHub, Google, Facebook",
+        "accountName": "Account Name",
+        "accountNamePlaceholder": "e.g., user@example.com",
+        "generateCode": "Generate Code",
+        "currentCode": "Current Code",
+        "timeRemaining": "Time Remaining",
+        "seconds": "seconds",
+        "secretKey": "Secret Key",
+        "copySecret": "Copy Secret",
+        "copyUri": "Copy URI",
+        "downloadQR": "Download QR Code",
+        "scanInstructions": "Scan this QR code with Google Authenticator or other TOTP apps",
+        "comingSoon": "In Development",
+        "mvpNote": "TOTP feature development is nearly complete. Currently in final testing and optimization phase!",
+        "configInfo": "Configuration",
+        "featuresTitle": "Features",
+        "qrCodeTitle": "QR Code",
+        "generating": "Generating...",
+        "copied": "Copied",
+        "copyCode": "Copy Code",
+        "backHome": "Back to Home",
+        "readyToGenerate": "Ready to Generate TOTP QR Code",
+        "fillFormPrompt": "Please fill in service name and account name, then click generate button",
+        "features": {
+            "realtime": "Real-time code updates",
+            "compatible": "Google Authenticator compatible",
+            "secure": "Generated locally, secure and reliable",
+            "countdown": "30-second countdown display"
+        }
+    },
+    "encrypted": {
+        "title": "Encrypted QR Code",
+        "subtitle": "Secure your sensitive data with military-grade encryption",
+        "description": "Hide sensitive information in ordinary-looking QR codes with AES-256 encryption and anti-brute-force protection",
+        "comingSoon": "Core Development Complete",
+        "designPhase": "Core functionality completed, UI implementation in progress. Expected release: Q2 2025",
+        "features": {
+            "title": "Security Features",
+            "militaryGrade": "Military-grade AES-256-GCM encryption",
+            "bruteForcePrevention": "PBKDF2-SHA256 key derivation with 100,000 iterations (temporary)",
+            "disguiseProtection": "Disguise layer shows harmless content to unauthorized users",
+            "integrityVerification": "Automatic tamper detection and data integrity verification",
+            "customization": "Full style customization with logo embedding support",
+            "crossPlatform": "Compatible with all mainstream QR code scanners"
+        },
+        "useCases": {
+            "title": "Use Cases",
+            "personal": "Personal passwords, private keys, identity information",
+            "business": "Employee credentials, customer data, API keys",
+            "developer": "Environment variables, database connections, certificates"
+        },
+        "security": {
+            "title": "Security Highlights",
+            "localProcessing": "All encryption performed locally - no data uploaded",
+            "strongPasswords": "Minimum 12 characters with complexity requirements",
+            "timelock": "3-attempt lockout with 30-second delay",
+            "memoryProtection": "Secure memory cleanup prevents data leakage"
+        },
+        "roadmap": {
+            "title": "Development Roadmap",
+            "q2": "Q2 2025: MVP with AES-256-GCM encryption",
+            "q3": "Q3 2025: ChaCha20-Poly1305 support and style customization",
+            "q4": "Q4 2025: Batch processing and advanced features"
         }
     },
     "notFound": {
@@ -188,3 +408,36 @@
         "keywords": "QR code generator,QR Code,QR code customization,free QR code"
     }
 }
+    },
+    "uiOptimization": {
+        "title": "UI Optimization",
+        "subtitle": "Brand new user interface design to improve usability and modernization",
+        "description": "Mobile-first design that perfectly adapts to all devices, providing unified navigation experience and fast operation workflows",
+        "inDevelopment": "In Development",
+        "designPhase": "Requirements analysis completed, design and development in progress. Expected release: Q1 2025",
+        "features": {
+            "title": "Optimization Features",
+            "unifiedDesign": "Unified visual style and interaction patterns",
+            "mobileFirst": "Mobile-first design, perfectly adapted for mobile screens",
+            "desktopOptimized": "Desktop multi-column layout, fully utilizing screen space",
+            "fastOperations": "Reduced operation steps, one-click generation and download",
+            "performanceBoost": "First screen loads in under 2 seconds, smooth animations",
+            "themeSupport": "Complete dark/light theme switching and multi-language support"
+        },
+        "improvements": {
+            "title": "Key Improvements",
+            "navigation": "Unified Navigation System - Consistent navigation bar and brand identity across pages",
+            "layout": "Card-based Layout - Core functions displayed in card format",
+            "responsive": "Responsive Design - Single column on mobile, multi-column on desktop",
+            "progressive": "Progressive Disclosure - Advanced features revealed based on user needs",
+            "realtime": "Real-time Interaction - Instant preview on input, immediate operation feedback",
+            "errorHandling": "Error Handling - Clear error messages and helpful tips"
+        },
+        "roadmap": {
+            "title": "Development Plan",
+            "phase1": "Phase 1: Foundation Setup (2 weeks)",
+            "phase2": "Phase 2: Design System Development (2 weeks)",
+            "phase3": "Phase 3: Page Reconstruction (3 weeks)",
+            "phase4": "Phase 4: Interaction Optimization and Release (1 week)"
+        }
+    }

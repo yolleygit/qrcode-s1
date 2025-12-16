@@ -5,6 +5,9 @@ import { ThemeProvider } from "../providers";
 import { NextIntlClientProvider } from 'next-intl';
 import { getMessages } from 'next-intl/server';
 import { notFound } from 'next/navigation';
+import { ErrorBoundary } from './components/ErrorBoundary';
+import { ToastProvider } from './components/Toast';
+import { OfflineBanner } from './components/NetworkStatus';
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -56,7 +59,12 @@ export default async function RootLayout({
       >
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
           <NextIntlClientProvider locale={locale} messages={messages}>
-            {children}
+            <ErrorBoundary>
+              <ToastProvider>
+                <OfflineBanner />
+                {children}
+              </ToastProvider>
+            </ErrorBoundary>
           </NextIntlClientProvider>
         </ThemeProvider>
       </body>

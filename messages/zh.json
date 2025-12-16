@@ -3,7 +3,10 @@
         "features": "产品功能",
         "testimonials": "用户评价",
         "faq": "常见问题",
-        "contact": "联系合作"
+        "contact": "联系合作",
+        "totp": "动态验证码",
+        "encrypted": "加密二维码",
+        "uiOptimization": "界面优化"
     },
     "hero": {
         "badge": "完全免费 · 无需登录",
@@ -175,6 +178,223 @@
             "M": "M (15%)",
             "Q": "Q (25%)",
             "H": "H (30%)"
+        },
+        "aiMagic": "AI 变变变"
+    },
+    "animatedQR": {
+        "title": "变化二维码",
+        "subtitle": "为您的二维码添加动态视觉效果",
+        "description": "支持颜色渐变、形状变换和呼吸效果，让您的二维码更具吸引力",
+        "enableAnimation": "启用动画",
+        "animationType": "动画类型",
+        "animationTypes": {
+            "gradient": "颜色渐变动画",
+            "shapeTransform": "形状变换动画",
+            "breathing": "呼吸效果"
+        },
+        "gradientAnimation": {
+            "title": "颜色渐变动画",
+            "description": "创建流动的颜色变化效果",
+            "startColor": "起始颜色",
+            "endColor": "结束颜色",
+            "gradientMode": "渐变模式",
+            "gradientModes": {
+                "linear": "线性渐变",
+                "radial": "径向渐变",
+                "conic": "圆锥渐变"
+            },
+            "direction": "渐变方向",
+            "speed": "动画速度"
+        },
+        "shapeTransform": {
+            "title": "形状变换动画",
+            "description": "实现二维码元素的形状变化",
+            "fromShape": "起始形状",
+            "toShape": "目标形状",
+            "shapes": {
+                "square": "方形",
+                "circle": "圆形",
+                "rounded": "圆角矩形",
+                "diamond": "菱形"
+            },
+            "period": "变换周期",
+            "transition": "过渡效果",
+            "transitions": {
+                "smooth": "平滑",
+                "elastic": "弹性",
+                "bounce": "反弹"
+            },
+            "maintainStructure": "保持结构完整性"
+        },
+        "breathing": {
+            "title": "呼吸效果",
+            "description": "添加缩放或透明度变化的呼吸动画",
+            "mode": "呼吸模式",
+            "modes": {
+                "scale": "缩放模式",
+                "opacity": "透明度模式",
+                "both": "混合模式"
+            },
+            "intensity": "呼吸强度",
+            "period": "呼吸周期",
+            "centerFixed": "中心固定"
+        },
+        "preview": {
+            "title": "实时预览",
+            "play": "播放",
+            "pause": "暂停",
+            "reset": "重置",
+            "progress": "进度",
+            "loop": "循环播放",
+            "frameRate": "帧率",
+            "performance": "性能状态",
+            "memoryUsage": "内存使用"
+        },
+        "export": {
+            "title": "导出动画",
+            "format": "导出格式",
+            "formats": {
+                "gif": "GIF 动画",
+                "mp4": "MP4 视频",
+                "svg": "SVG 动画"
+            },
+            "quality": "导出质量",
+            "qualities": {
+                "high": "高质量",
+                "medium": "中等质量",
+                "low": "低质量"
+            },
+            "frameRate": "帧率",
+            "duration": "持续时间",
+            "loopCount": "循环次数",
+            "infinite": "无限循环",
+            "fileSize": "文件大小限制",
+            "startExport": "开始导出",
+            "exportProgress": "导出进度",
+            "estimatedTime": "预估完成时间",
+            "download": "下载文件"
+        },
+        "config": {
+            "title": "配置管理",
+            "save": "保存配置",
+            "load": "加载配置",
+            "manage": "管理配置",
+            "configName": "配置名称",
+            "description": "描述信息",
+            "createdAt": "创建时间",
+            "actions": "操作",
+            "rename": "重命名",
+            "delete": "删除",
+            "export": "导出配置",
+            "import": "导入配置",
+            "share": "分享配置",
+            "apply": "应用配置",
+            "confirmDelete": "确认删除此配置？",
+            "invalidConfig": "无效的配置文件",
+            "configSaved": "配置已保存",
+            "configLoaded": "配置已加载"
+        },
+        "mobile": {
+            "title": "移动端优化",
+            "autoQuality": "自动质量调整",
+            "powerSaving": "省电模式",
+            "networkOptimization": "网络优化",
+            "touchGestures": "触摸手势",
+            "responsiveLayout": "响应式布局"
+        },
+        "tips": {
+            "title": "使用提示",
+            "scanability": "确保动画不影响二维码的可扫描性",
+            "performance": "在移动设备上建议使用较简单的动画效果",
+            "fileSize": "导出时选择合适的质量设置以平衡文件大小和效果",
+            "colorContrast": "保持足够的颜色对比度以确保可扫描性",
+            "animationSpeed": "较慢的动画速度通常效果更佳"
+        },
+        "errors": {
+            "invalidConfig": "动画配置无效",
+            "renderFailed": "动画渲染失败",
+            "exportFailed": "导出失败",
+            "performanceWarning": "性能警告：动画可能卡顿",
+            "compatibilityError": "浏览器兼容性错误",
+            "fileSizeExceeded": "文件大小超出限制",
+            "networkError": "网络错误",
+            "memoryError": "内存不足"
+        },
+        "success": {
+            "configSaved": "配置保存成功",
+            "configLoaded": "配置加载成功",
+            "exportCompleted": "导出完成",
+            "animationGenerated": "动画生成成功"
+        }
+    },
+    "totp": {
+        "title": "动态验证码",
+        "subtitle": "生成 TOTP 双因素认证二维码",
+        "description": "创建与 Google Authenticator 兼容的动态验证码，每30秒自动更新",
+        "serviceName": "服务名称",
+        "serviceNamePlaceholder": "例如: GitHub, Google, Facebook",
+        "accountName": "账户名称", 
+        "accountNamePlaceholder": "例如: user@example.com",
+        "generateCode": "生成验证码",
+        "currentCode": "当前验证码",
+        "timeRemaining": "剩余时间",
+        "seconds": "秒",
+        "secretKey": "密钥",
+        "copySecret": "复制密钥",
+        "copyUri": "复制 URI",
+        "downloadQR": "下载二维码",
+        "scanInstructions": "使用 Google Authenticator 或其他 TOTP 应用扫描此二维码",
+        "comingSoon": "开发中",
+        "mvpNote": "TOTP 功能已基本完成开发，正在进行最后的测试和优化！",
+        "configInfo": "配置信息",
+        "featuresTitle": "功能特点",
+        "qrCodeTitle": "二维码",
+        "generating": "生成中...",
+        "copied": "已复制",
+        "copyCode": "复制验证码",
+        "backHome": "返回首页",
+        "readyToGenerate": "准备生成 TOTP 二维码",
+        "fillFormPrompt": "请填写服务名称和账户名称，然后点击生成按钮",
+        "features": {
+            "realtime": "实时验证码更新",
+            "compatible": "Google Authenticator 兼容",
+            "secure": "本地生成，安全可靠",
+            "countdown": "30秒倒计时显示"
+        }
+    },
+    "encrypted": {
+        "title": "加密二维码",
+        "subtitle": "军用级加密保护您的敏感数据",
+        "description": "将敏感信息隐藏在普通二维码中，采用 AES-256 加密和防暴力破解保护",
+        "comingSoon": "核心开发完成",
+        "designPhase": "核心功能已完成开发，正在进行用户界面实现，预计发布时间：2025年第二季度",
+        "features": {
+            "title": "安全特性",
+            "militaryGrade": "军用级 AES-256-GCM 加密算法",
+            "bruteForcePrevention": "PBKDF2-SHA256 密钥派生，100,000次迭代（临时方案）",
+            "disguiseProtection": "伪装层向未授权用户显示无害内容",
+            "integrityVerification": "自动检测篡改和数据完整性验证",
+            "customization": "完全样式定制，支持 Logo 嵌入",
+            "crossPlatform": "兼容所有主流二维码扫描应用"
+        },
+        "useCases": {
+            "title": "使用场景",
+            "personal": "个人密码、私钥、身份信息",
+            "business": "员工凭证、客户数据、API 密钥",
+            "developer": "环境变量、数据库连接、证书信息"
+        },
+        "security": {
+            "title": "安全亮点",
+            "localProcessing": "所有加密操作本地完成，不上传数据",
+            "strongPasswords": "最少12位字符，包含复杂度要求",
+            "timelock": "3次失败后锁定30秒",
+            "memoryProtection": "安全内存清理防止数据泄漏"
+        },
+        "roadmap": {
+            "title": "开发路线图",
+            "q2": "2025年Q2：AES-256-GCM 加密的 MVP 版本",
+            "q3": "2025年Q3：ChaCha20-Poly1305 支持和样式定制",
+            "q4": "2025年Q4：批量处理和高级功能"
         }
     },
     "notFound": {
@@ -186,5 +406,127 @@
         "title": "QR Master - 免费在线二维码生成器",
         "description": "简单、快速、可定制的在线二维码生成工具。支持自定义颜色、Logo、码点样式等。完全免费，无需登录。",
         "keywords": "二维码生成器,QR Code,二维码美化,免费二维码"
+    },
+    "homepage": {
+        "title": "选择您需要的二维码类型",
+        "subtitle": "三种强大的二维码生成工具，满足不同场景需求",
+        "quickGenerate": {
+            "title": "快速生成静态二维码",
+            "placeholder": "输入网址 (例如: https://example.com)",
+            "generate": "立即下载",
+            "moreOptions": "更多选项",
+            "description": "输入网址立即生成，无需复杂设置"
+        },
+        "featureCards": {
+            "static": {
+                "title": "静态二维码",
+                "description": "生成普通二维码，支持网址、文本等内容",
+                "status": "立即可用",
+                "features": ["实时预览", "高清导出", "样式定制"],
+                "action": "开始生成"
+            },
+            "totp": {
+                "title": "动态验证码",
+                "description": "生成TOTP双因素认证二维码",
+                "status": "测试版",
+                "features": ["Google兼容", "实时更新", "安全可靠"],
+                "action": "生成验证码"
+            },
+            "encrypted": {
+                "title": "加密二维码",
+                "description": "军用级加密保护敏感数据",
+                "status": "测试版",
+                "features": ["AES-256加密", "伪装保护", "本地处理"],
+                "action": "加密生成"
+            }
+        },
+        "whyChoose": {
+            "title": "为什么选择 QR Master？",
+            "subtitle": "专业、安全、易用的二维码生成工具",
+            "features": {
+                "fast": {
+                    "title": "快速生成",
+                    "description": "输入即生成，无需等待"
+                },
+                "secure": {
+                    "title": "安全可靠", 
+                    "description": "本地处理，隐私保护"
+                },
+                "quality": {
+                    "title": "高质量输出",
+                    "description": "支持高清PNG和SVG格式"
+                },
+                "free": {
+                    "title": "完全免费",
+                    "description": "无需注册，永久免费使用"
+                }
+            }
+        }
+    },
+    "homepage": {
+        "title": "选择您需要的二维码类型",
+        "subtitle": "三种强大的二维码生成工具，满足不同场景需求",
+        "quickGenerate": {
+            "title": "快速生成",
+            "placeholder": "输入网址快速生成二维码",
+            "generate": "立即生成",
+            "moreOptions": "更多选项"
+        },
+        "featureCards": {
+            "static": {
+                "title": "静态二维码",
+                "description": "生成普通二维码，支持网址、文本等内容",
+                "status": "立即可用",
+                "features": ["实时预览", "高清导出", "样式定制"],
+                "action": "开始生成"
+            },
+            "totp": {
+                "title": "动态验证码",
+                "description": "生成TOTP双因素认证二维码",
+                "status": "测试版",
+                "features": ["Google兼容", "实时更新", "安全可靠"],
+                "action": "生成验证码"
+            },
+            "encrypted": {
+                "title": "加密二维码",
+                "description": "军用级加密保护敏感数据",
+                "status": "测试版",
+                "features": ["AES-256加密", "伪装保护", "本地处理"],
+                "action": "加密生成"
+            }
+        }
     }
 }
+    },
+    "uiOptimization": {
+        "title": "界面优化",
+        "subtitle": "全新的用户界面设计，提升易用性和现代化程度",
+        "description": "采用移动优先设计，完美适配各种设备，提供统一的导航体验和快速操作流程",
+        "inDevelopment": "开发中",
+        "designPhase": "需求分析已完成，正在进行设计和开发，预计发布时间：2025年第一季度",
+        "features": {
+            "title": "优化特性",
+            "unifiedDesign": "统一的视觉风格和交互模式",
+            "mobileFirst": "移动优先设计，完美适配手机屏幕",
+            "desktopOptimized": "桌面端多列布局，充分利用屏幕空间",
+            "fastOperations": "减少操作步骤，实现一键生成和下载",
+            "performanceBoost": "2秒内完成首屏加载，流畅的动画效果",
+            "themeSupport": "完整的深色/浅色主题切换和多语言支持"
+        },
+        "improvements": {
+            "title": "主要改进",
+            "navigation": "统一导航系统 - 跨页面一致的导航栏和品牌标识",
+            "layout": "卡片式布局 - 以卡片形式展示核心功能",
+            "responsive": "响应式设计 - 移动端单列，桌面端多列布局",
+            "progressive": "渐进式披露 - 根据需求逐步展示高级功能",
+            "realtime": "实时交互 - 输入即时预览，操作即时反馈",
+            "errorHandling": "错误处理 - 清晰的错误信息和帮助提示"
+        },
+        "roadmap": {
+            "title": "开发计划",
+            "phase1": "第一阶段：基础架构搭建 (2周)",
+            "phase2": "第二阶段：设计系统开发 (2周)",
+            "phase3": "第三阶段：页面重构 (3周)",
+            "phase4": "第四阶段：交互优化和发布 (1周)"
+        }
+    }
