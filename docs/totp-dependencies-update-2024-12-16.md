@@ -240,9 +240,9 @@ useEffect(() => {
 // package.json 中的相关依赖
 {
   "dependencies": {
-    "qrcode": "^1.5.3",
+    "qrcode": "^1.5.4",
     "otplib": "^12.0.1",
-    "lucide-react": "^0.294.0"
+    "lucide-react": "^0.561.0"
   }
 }
 ```
