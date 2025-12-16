@@ -1,7 +1,7 @@
 'use client';
 
-import React, { useState } from 'react';
-import { Shield, Clock, Key, Copy, Download, Settings } from 'lucide-react';
+import { useState, useEffect, useCallback } from 'react';
+import { Shield, Copy, Download, Key, Clock, RefreshCw } from 'lucide-react';
 
 interface TOTPGeneratorProps {
   onSelectRecentConfig?: (config: any) => void;
@@ -14,162 +14,209 @@ export function TOTPGenerator({
   onShowPreferences,
   isEmbedded = false 
 }: TOTPGeneratorProps) {
-  const [serviceName, setServiceName] = useState('');
-  const [accountName, setAccountName] = useState('');
   const [secretKey, setSecretKey] = useState('');
-  const [issuer, setIssuer] = useState('');
+  const [accountName, setAccountName] = useState('');
+  const [showOptional, setShowOptional] = useState(false);
+  const [currentCode, setCurrentCode] = useState('123456');
+  const [timeLeft, setTimeLeft] = useState(29);
+  const [qrGenerated, setQrGenerated] = useState(false);
+
+  // 模拟验证码倒计时
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setTimeLeft(prev => {
+        if (prev <= 1) {
+          // 生成新的验证码
+          setCurrentCode(Math.floor(100000 + Math.random() * 900000).toString());
+          return 30;
+        }
+        return prev - 1;
+      });
+    }, 1000);
+
+    return () => clearInterval(timer);
+  }, []);
+
+  const handleGenerate = useCallback(() => {
+    if (secretKey.trim()) {
+      setQrGenerated(true);
+      // 这里应该调用实际的TOTP生成逻辑
+    }
+  }, [secretKey]);
+
+  const handleCopyCode = useCallback(() => {
+    navigator.clipboard.writeText(currentCode);
+  }, [currentCode]);
+
+  const handleCopyURI = useCallback(() => {
+    const uri = `otpauth://totp/${encodeURIComponent(accountName || 'Account')}?secret=${secretKey}&issuer=QRMaster`;
+    navigator.clipboard.writeText(uri);
+  }, [accountName, secretKey]);
 
   return (
-    <div className={`space-y-6 ${isEmbedded ? '' : 'p-6'}`}>
+    <div className={`h-full ${isEmbedded ? '' : 'p-6'}`}>
+      {/* 标题区 */}
       {!isEmbedded && (
-        <div className="text-center mb-8">
-          <div className="w-16 h-16 bg-gradient-to-br from-green-500 to-emerald-600 rounded-2xl flex items-center justify-center mx-auto mb-4">
-            <Shield className="w-8 h-8 text-white" />
-          </div>
-          <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-2">
-            TOTP 动态验证码生成器
+        <div className="mb-6">
+          <h2 className="text-xl font-bold text-slate-900 dark:text-white mb-1">
+            生成 TOTP 动态二维码
           </h2>
-          <p className="text-slate-600 dark:text-slate-400">
-            生成兼容 Google Authenticator 的双因素认证二维码
+          <p className="text-sm text-slate-600 dark:text-slate-400">
+            用于 Google Authenticator 等双因素认证应用
           </p>
         </div>
       )}
 
-      <div className="grid md:grid-cols-2 gap-8">
-        {/* 左侧：输入表单 */}
-        <div className="space-y-6">
+      {/* 主要内容区 - 左右布局 */}
+      <div className="grid lg:grid-cols-2 gap-6 h-full">
+        {/* 左侧：输入区 */}
+        <div className="space-y-4">
+          {/* 密钥输入 */}
           <div>
             <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">
-              服务名称 *
-            </label>
-            <input
-              type="text"
-              value={serviceName}
-              onChange={(e) => setServiceName(e.target.value)}
-              placeholder="例如：GitHub, Google, Microsoft"
-              className="w-full px-4 py-3 border border-slate-300 dark:border-slate-600 rounded-lg bg-white dark:bg-slate-800 text-slate-900 dark:text-white placeholder-slate-500 dark:placeholder-slate-400 focus:ring-2 focus:ring-green-500 focus:border-transparent transition-colors"
-            />
-          </div>
-
-          <div>
-            <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">
-              账户名称 *
-            </label>
-            <input
-              type="text"
-              value={accountName}
-              onChange={(e) => setAccountName(e.target.value)}
-              placeholder="例如：user@example.com"
-              className="w-full px-4 py-3 border border-slate-300 dark:border-slate-600 rounded-lg bg-white dark:bg-slate-800 text-slate-900 dark:text-white placeholder-slate-500 dark:placeholder-slate-400 focus:ring-2 focus:ring-green-500 focus:border-transparent transition-colors"
-            />
-          </div>
-
-          <div>
-            <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">
-              密钥 (Secret Key) *
+              密钥（Secret Key）*
             </label>
             <input
               type="text"
               value={secretKey}
               onChange={(e) => setSecretKey(e.target.value)}
-              placeholder="Base32 编码的密钥"
-              className="w-full px-4 py-3 border border-slate-300 dark:border-slate-600 rounded-lg bg-white dark:bg-slate-800 text-slate-900 dark:text-white placeholder-slate-500 dark:placeholder-slate-400 focus:ring-2 focus:ring-green-500 focus:border-transparent transition-colors font-mono text-sm"
+              placeholder="JBSWY3DPEHPK3PXP..."
+              className="w-full px-3 py-2.5 border border-slate-300 dark:border-slate-600 rounded-lg bg-white dark:bg-slate-800 text-slate-900 dark:text-white placeholder-slate-500 dark:placeholder-slate-400 focus:ring-2 focus:ring-green-500 focus:border-transparent transition-colors font-mono text-sm"
             />
+            <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">
+              密钥由服务提供方提供，请妥善保管
+            </p>
           </div>
 
+          {/* 可选信息展开 */}
           <div>
-            <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">
-              发行者 (可选)
-            </label>
-            <input
-              type="text"
-              value={issuer}
-              onChange={(e) => setIssuer(e.target.value)}
-              placeholder="例如：公司名称"
-              className="w-full px-4 py-3 border border-slate-300 dark:border-slate-600 rounded-lg bg-white dark:bg-slate-800 text-slate-900 dark:text-white placeholder-slate-500 dark:placeholder-slate-400 focus:ring-2 focus:ring-green-500 focus:border-transparent transition-colors"
-            />
+            <button
+              onClick={() => setShowOptional(!showOptional)}
+              className="flex items-center gap-2 text-sm font-medium text-slate-600 dark:text-slate-400 hover:text-slate-800 dark:hover:text-slate-200 transition-colors"
+            >
+              <span className={`transform transition-transform ${showOptional ? 'rotate-90' : ''}`}>
+                ▸
+              </span>
+              显示信息（可选）
+            </button>
+            
+            {showOptional && (
+              <div className="mt-3 space-y-3">
+                <div>
+                  <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">
+                    账户名称（可选）
+                  </label>
+                  <input
+                    type="text"
+                    value={accountName}
+                    onChange={(e) => setAccountName(e.target.value)}
+                    placeholder="my-email@gmail.com"
+                    className="w-full px-3 py-2 border border-slate-300 dark:border-slate-600 rounded-lg bg-white dark:bg-slate-800 text-slate-900 dark:text-white placeholder-slate-500 dark:placeholder-slate-400 focus:ring-2 focus:ring-green-500 focus:border-transparent transition-colors text-sm"
+                  />
+                  <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">
+                    仅用于显示，不影响验证码生成
+                  </p>
+                </div>
+              </div>
+            )}
           </div>
 
+          {/* 生成按钮 */}
           <button
-            disabled={!serviceName || !accountName || !secretKey}
-            className="w-full bg-gradient-to-r from-green-500 to-emerald-600 text-white py-3 px-6 rounded-lg hover:from-green-600 hover:to-emerald-700 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-200 font-medium"
+            onClick={handleGenerate}
+            disabled={!secretKey.trim()}
+            className="w-full bg-gradient-to-r from-green-500 to-emerald-600 text-white py-2.5 px-4 rounded-lg hover:from-green-600 hover:to-emerald-700 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-200 font-medium text-sm"
           >
             生成 TOTP 二维码
           </button>
         </div>
 
-        {/* 右侧：预览和操作 */}
-        <div className="space-y-6">
-          {/* 二维码预览区域 */}
-          <div className="bg-slate-50 dark:bg-slate-800 rounded-lg p-6 text-center">
-            <div className="w-48 h-48 bg-white dark:bg-slate-700 rounded-lg mx-auto mb-4 flex items-center justify-center border-2 border-dashed border-slate-300 dark:border-slate-600">
-              <div className="text-center">
-                <Shield className="w-12 h-12 text-slate-400 mx-auto mb-2" />
-                <p className="text-sm text-slate-500 dark:text-slate-400">
-                  填写信息后生成二维码
-                </p>
-              </div>
+        {/* 右侧：结果区 */}
+        <div className="space-y-4">
+          {/* 动态二维码 */}
+          <div className="bg-slate-50 dark:bg-slate-800 rounded-lg p-4">
+            <div className="aspect-square bg-white dark:bg-slate-700 rounded-lg flex items-center justify-center border-2 border-dashed border-slate-300 dark:border-slate-600 mb-3">
+              {qrGenerated ? (
+                <div className="text-center">
+                  <div className="w-32 h-32 bg-slate-200 dark:bg-slate-600 rounded-lg mb-2 flex items-center justify-center">
+                    <Shield className="w-8 h-8 text-slate-400" />
+                  </div>
+                  <p className="text-xs text-slate-500 dark:text-slate-400">
+                    TOTP 二维码
+                  </p>
+                </div>
+              ) : (
+                <div className="text-center">
+                  <Shield className="w-8 h-8 text-slate-400 mx-auto mb-2" />
+                  <p className="text-xs text-slate-500 dark:text-slate-400">
+                    扫描后添加到验证器 App
+                  </p>
+                </div>
+              )}
             </div>
           </div>
 
+          {/* 当前验证码 */}
+          <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg p-4">
+            <div className="flex items-center justify-between mb-2">
+              <span className="text-sm font-medium text-slate-700 dark:text-slate-300">
+                当前验证码
+              </span>
+              <div className="flex items-center gap-2 text-xs text-slate-500 dark:text-slate-400">
+                <Clock className="w-3 h-3" />
+                <span>有效期：{timeLeft} 秒</span>
+              </div>
+            </div>
+            {secretKey.trim() ? (
+              <div className="text-2xl font-mono font-bold text-slate-900 dark:text-white tracking-wider">
+                {currentCode.slice(0, 3)} {currentCode.slice(3)}
+              </div>
+            ) : (
+              <div className="text-2xl font-mono font-bold text-slate-400 dark:text-slate-600 tracking-wider">
+                --- ---
+              </div>
+            )}
+          </div>
+
           {/* 操作按钮 */}
-          <div className="space-y-3">
+          <div className="space-y-2">
             <button
-              disabled
-              className="w-full bg-slate-100 dark:bg-slate-800 text-slate-400 dark:text-slate-500 py-3 px-4 rounded-lg cursor-not-allowed flex items-center justify-center gap-2"
+              onClick={handleCopyCode}
+              disabled={!qrGenerated}
+              className="w-full bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 py-2 px-3 rounded-lg hover:bg-slate-200 dark:hover:bg-slate-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors flex items-center justify-center gap-2 text-sm"
             >
-              <Download className="w-4 h-4" />
-              下载二维码
+              <Copy className="w-4 h-4" />
+              复制验证码
             </button>
             
             <button
-              disabled
-              className="w-full bg-slate-100 dark:bg-slate-800 text-slate-400 dark:text-slate-500 py-3 px-4 rounded-lg cursor-not-allowed flex items-center justify-center gap-2"
+              onClick={handleCopyURI}
+              disabled={!qrGenerated}
+              className="w-full bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 py-2 px-3 rounded-lg hover:bg-slate-200 dark:hover:bg-slate-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors flex items-center justify-center gap-2 text-sm"
             >
               <Copy className="w-4 h-4" />
               复制 TOTP URI
             </button>
-          </div>
-
-          {/* 安全提示 */}
-          <div className="bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-800 rounded-lg p-4">
-            <div className="flex items-start gap-3">
-              <Key className="w-5 h-5 text-amber-600 dark:text-amber-400 flex-shrink-0 mt-0.5" />
-              <div>
-                <h4 className="text-sm font-semibold text-amber-800 dark:text-amber-300 mb-1">
-                  安全提醒
-                </h4>
-                <p className="text-xs text-amber-700 dark:text-amber-400">
-                  请妥善保管您的密钥，不要与他人分享。建议在安全的环境中生成和使用 TOTP 二维码。
-                </p>
-              </div>
-            </div>
+            
+            <button
+              disabled={!qrGenerated}
+              className="w-full bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 py-2 px-3 rounded-lg hover:bg-slate-200 dark:hover:bg-slate-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors flex items-center justify-center gap-2 text-sm"
+            >
+              <Download className="w-4 h-4" />
+              下载二维码
+            </button>
           </div>
         </div>
       </div>
 
-      {/* 使用说明 */}
-      <div className="bg-slate-50 dark:bg-slate-800 rounded-lg p-6">
-        <h3 className="text-lg font-semibold text-slate-900 dark:text-white mb-4 flex items-center gap-2">
-          <Clock className="w-5 h-5 text-green-500" />
-          使用说明
-        </h3>
-        <div className="grid md:grid-cols-2 gap-6 text-sm text-slate-600 dark:text-slate-400">
+      {/* 底部安全提醒 */}
+      <div className="mt-6 bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-800 rounded-lg p-3">
+        <div className="flex items-start gap-2">
+          <Key className="w-4 h-4 text-amber-600 dark:text-amber-400 flex-shrink-0 mt-0.5" />
           <div>
-            <h4 className="font-medium text-slate-700 dark:text-slate-300 mb-2">1. 填写信息</h4>
-            <p>输入服务名称、账户名称和密钥。密钥通常由服务提供商提供。</p>
-          </div>
-          <div>
-            <h4 className="font-medium text-slate-700 dark:text-slate-300 mb-2">2. 扫描二维码</h4>
-            <p>使用 Google Authenticator 或其他 TOTP 应用扫描生成的二维码。</p>
-          </div>
-          <div>
-            <h4 className="font-medium text-slate-700 dark:text-slate-300 mb-2">3. 验证设置</h4>
-            <p>在相应服务中输入应用显示的 6 位验证码完成设置。</p>
-          </div>
-          <div>
-            <h4 className="font-medium text-slate-700 dark:text-slate-300 mb-2">4. 安全使用</h4>
-            <p>妥善保管备份码，定期检查账户安全设置。</p>
+            <p className="text-xs text-amber-700 dark:text-amber-400">
+              🔐 <strong>安全提醒：</strong>验证码每 30 秒变化，请勿截图/分享；密钥不要与他人共享
+            </p>
           </div>
         </div>
       </div>
