@@ -1,0 +1,9 @@
+name = "qrcode-s1"
+compatibility_date = "2024-12-16"
+
+# 配置为 Pages 项目
+pages_build_output_dir = "out"
+
+# 环境配置
+[env.production]
+compatibility_date = "2024-12-16"
